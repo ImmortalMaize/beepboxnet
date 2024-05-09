@@ -1,0 +1,79 @@
+:root {
+  --raisin: #181926;
+  --space: #292A3D;
+  --beepbox: #7744FF;
+  --phlox: #D835FC;
+  --mauve: #EDC5FC;
+  --ivory: #FFFFF0;
+  --gradphlox: linear-gradient(225deg, #eda0fe, #d835fc);
+  --gradbox: linear-gradient(225deg, #c5aeff, #7744ff);
+}
+
+@css {
+  main {
+    @apply flex flex-col items-center justify-center  mx-10  sm:mx-10 md:mx-20 lg:mx-28 xl:mx-40 p-0
+  }
+  button {
+      @apply w-10 h-10 rounded-lg flex relative justify-start items-center justify-items-center hover:w-28 gap-2 overflow-hidden
+  }
+  button div.icon {
+      @apply w-10 h-10 text-center flex items-center justify-center text-ivory text-2xl
+  }
+  button div.name {
+      @apply flex justify-end
+  }
+  h1 {
+    @apply text-3xl font-bold
+  }
+  h2 {
+    @apply text-2xl font-bold
+  }
+}
+
+body
+  background: var(--raisin);
+  color: var(--ivory);
+  font-family: '', sans-serif;
+
+
+
+
+button
+  background: linear-gradient(225deg, #1a1b29, #161722);
+  box-shadow:  5px -5px 15px #141520,
+             -5px 5px 15px #1c1d2c;
+  transition: width 0.5s;
+  overflow: hidden;
+  position: relative;
+  div.icon
+    text-align: center;
+    left: 0px;
+  div.name
+    display: none;
+  ::before
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+    filter: blur(75px);
+    transition: width 0.5s height 0.5s filter 5s;
+
+button:hover
+  div.name
+    display: flex;
+    position: relative;
+    left: 0px;
+  :before
+    width: 100%;
+    height: 100%;
+    filter: blur(50px);
+
+button.phlox-button
+  ::before
+    background: var(--gradphlox)
+
+button.box-button
+  ::before
+    background: var(--gradbox)
