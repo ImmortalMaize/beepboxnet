@@ -23,7 +23,7 @@ import {
   
     const canvas = useSignal<Element>();
   
-    // eslint-disable-next-line qwik/no-use-visible-task
+    
     useVisibleTask$(() => {
       store.rive = noSerialize(
         new rive.Rive({

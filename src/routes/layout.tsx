@@ -6,9 +6,12 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 
 import styles from "./styles.styl?inline";
 import { useSession } from "../shared/loaders";
-import { QwikRive } from "~/components/rive/rive";
+import { QwikRive } from "qwik-rive";
 import { NavButton } from "~/components/nav.button";
 import * as BootstrapIcons from "@qwikest/icons/bootstrap";
+import { Maize } from "~/components/maize/maize";
+import { Qwik } from "~/components/qwik/qwik";
+import { Nest } from "~/components/nest/nest";
 export { useSession } from "~/shared/loaders";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
@@ -54,9 +57,9 @@ const LogOutButton = component$(() => {
 const LoggedInActions = component$(() => {
   return <NavActions id="user-actions">
     <LogOutButton />
-    <NavButton href="profile" name="Profile" hot={true}><BootstrapIcons.BsPerson /></NavButton>
-    <NavButton href="account" name="Account" hot={true}><BootstrapIcons.BsGear /></NavButton>
-    <NavButton href="poast" name="Poast" hot={true}><BootstrapIcons.BsPlus /></NavButton>
+    <NavButton href="profile" name="Profile" hot ><BootstrapIcons.BsPerson /></NavButton>
+    <NavButton href="account" name="Account" hot ><BootstrapIcons.BsGear /></NavButton>
+    <NavButton href="poast" name="Poast" hot ><BootstrapIcons.BsPlus /></NavButton>
   </NavActions>
 })
 
@@ -98,6 +101,14 @@ const Header = (props: {
   );
 }
 
+const Footer = () => (<footer class="fixed bottom-0 h-auto w-full p-2 flex gap-2 justify-start items-center bg-raisin/80 backdrop-blur-sm"> 
+<span>Made by </span>
+<NavButton name="scarletarmada" href={"https://twitter.com/coefirk"} large><Maize fill="ivory" /></NavButton>
+<span> with </span>
+<NavButton name="Qwik" href={"https://qwik.dev/"}><Qwik /></NavButton>
+<NavButton name="Nest" href="https://nestjs.com/"><Nest fill="ivory"/></NavButton>
+</footer>)
+
 export default component$(() => {
   useStyles$(styles);
   const signal = useSession();
@@ -109,6 +120,7 @@ export default component$(() => {
       <main>
         <Slot />
       </main>
+      <Footer />
     </>
   );
 });

@@ -16,6 +16,9 @@
   button {
       @apply w-10 h-10 rounded-lg flex relative justify-start items-center justify-items-center hover:w-28 gap-2 overflow-hidden
   }
+  button.large {
+      @apply hover:w-40
+  }
   button div.icon {
       @apply w-10 h-10 text-center flex items-center justify-center text-ivory text-2xl
   }
@@ -35,8 +38,12 @@ body
   color: var(--ivory);
   font-family: '', sans-serif;
 
+.content
+  background: linear-gradient(225deg, #2c2d41, #252637)
 
-
+.shadow
+  box-shadow:  10px -10px 30px #141520,
+             -10px 10px 30px #1c1d2c;
 
 button
   background: linear-gradient(225deg, #1a1b29, #161722);
@@ -63,6 +70,8 @@ button
 button:hover
   div.name
     display: flex;
+    align-content: center;
+    justify-content: center;
     position: relative;
     left: 0px;
   :before
